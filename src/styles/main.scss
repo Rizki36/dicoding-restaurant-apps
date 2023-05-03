@@ -1,3 +1,89 @@
-img {
-  display: block;
+$primary: #e75659;
+
+// Reset CSS
+* {
+  font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+
+.navigation {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 26px 24px 0;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  .navigation__logo {
+    a {
+      font-weight: 800;
+      color: $primary;
+      font-size: 36px;
+      line-height: 16px;
+    }
+  }
+
+  .navigation__menu {
+    display: none;
+    padding-inline-start: 0;
+    list-style: none;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff0e9;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 24px;
+
+  .hero__left {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero__left-title {
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 800;
+    color: $primary;
+    text-align: center;
+  }
+  .hero__left-subtitle {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 800;
+    color: #3a3a3a;
+    text-align: center;
+    max-width: 235px;
+    margin-top: 16px;
+  }
+
+  .btn-find {
+    margin-top: 42px;
+    background-color: #fecc64;
+    color: #3a3a3a;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 15px;
+    border-radius: 42px;
+  }
 }

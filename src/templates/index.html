@@ -1,17 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  
-  <title>Restaurant Apps Starter Project</title>
-</head>
-<body>
-  <h1>Restaurant Apps Starter Project</h1>
-  <p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-  <p>Jangan lupa untuk menggunakan salah satu gambar yang berada pada ./images/heros sebagai background hero elemen</p>
-  <img src="./images/heros/hero-image_1.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_2.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_3.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_4.jpg" width="450" alt="">
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lesu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navigation">
+      <div class="navigation__logo">
+        <a href="/">Lesu</a>
+      </div>
+
+      <button class="btn-menu" type="button" aria-label="Menu">
+        <img src="/images/menu-icon.svg" alt="Menu" />
+      </button>
+      <ul class="navigation__menu">
+        <li class="navigation__menu-item"><a href="/">Home</a></li>
+        <li class="navigation__menu-item"><a href="/favorite">Favorite</a></li>
+        <li class="navigation__menu-item"><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <!-- left hero -->
+        <div class="hero__left">
+          <h1 class="hero__left-title">All Restaurants Near you are here</h1>
+          <p class="hero__left-subtitle">
+            We make it easy for you to find delicious restaurants around you.
+          </p>
+          <a class="btn-find" href="#">Let’s Find</a>
+        </div>
+
+        <!-- right hero -->
+        <div class="hero__right">
+          <img src="" alt="" />
+        </div>
+      </section>
+
+      <section></section>
+
+      <section id="about">
+        <h1>About Us</h1>
+      </section>
+    </main>
+  </body>
 </html>
