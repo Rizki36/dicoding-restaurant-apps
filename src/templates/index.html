@@ -21,14 +21,24 @@
         <a href="/">Lesu</a>
       </div>
 
-      <button class="btn-menu" type="button" aria-label="Menu">
-        <img src="/images/menu-icon.svg" alt="Menu" />
+      <button class="btn-open" type="button" aria-label="Menu">
+        <img src="/images/menu-open.svg" alt="Menu" />
       </button>
-      <ul class="navigation__menu">
-        <li class="navigation__menu-item"><a href="/">Home</a></li>
-        <li class="navigation__menu-item"><a href="/favorite">Favorite</a></li>
-        <li class="navigation__menu-item"><a href="/about">About</a></li>
-      </ul>
+      <div class="navigation__menu-container">
+        <div class="btn-close__container">
+          <button class="btn-close" type="button" aria-label="Menu">
+            <img src="/images/menu-close.svg" alt="Menu" />
+          </button>
+        </div>
+
+        <ul class="navigation__menu">
+          <li class="navigation__menu-item"><a href="/">Home</a></li>
+          <li class="navigation__menu-item">
+            <a href="/favorite">Favorite</a>
+          </li>
+          <li class="navigation__menu-item"><a href="/about">About</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Main -->
