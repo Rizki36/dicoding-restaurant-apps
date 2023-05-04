@@ -1,4 +1,5 @@
 $primary: #e75659;
+$secondary: #fecc64;
 
 // Reset CSS
 * {
@@ -18,7 +19,7 @@ a {
 }
 
 :focus {
-  outline: 1px solid #fecc64;
+  outline: 1px solid $secondary;
 }
 
 @keyframes navigation-mobile-open {
@@ -179,5 +180,53 @@ a {
     font-weight: 800;
     padding: 15px;
     border-radius: 42px;
+  }
+}
+
+.features {
+  display: flex;
+  gap: 42px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid #d8d8d8;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+
+  .features__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .features__item-icon {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background-color: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .features__item-content {
+    margin-top: 8px;
+  }
+
+  .features__item-title {
+    color: #3a3a3a;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+  }
+  .features__item-description {
+    color: #978e8a;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 100%;
+    text-align: center;
   }
 }
