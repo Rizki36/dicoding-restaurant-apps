@@ -283,6 +283,22 @@ a {
   .foods__item-content {
     padding: 16px 16px 44px;
   }
+  .foods__item-name {
+    color: #3a3a3a;
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .foods__item-rating {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+  }
+  .foods__item-rating span {
+    color: #978e8a;
+    font-size: 16px;
+  }
   .foods__item-description {
     font-size: 16px;
     color: #3a3a3a;
