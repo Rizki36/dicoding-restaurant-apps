@@ -104,50 +104,7 @@
           Our <br />
           Best Menu
         </h2>
-        <div class="foods__list">
-          <div class="foods__item">
-            <div class="foods__item-image">
-              <img src="/images/food-placeholder.png" alt="Food image" />
-              <span>Diwek</span>
-            </div>
-
-            <div class="foods__item-content">
-              <h3 class="foods__item-name">Name</h3>
-              <div class="foods__item-rating">
-                <img src="/images/star-icon.svg" alt="Star icon" />
-                <span>4.6</span>
-              </div>
-              <p class="foods__item-description">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum corporis aliquam aspernatur repudiandae architecto
-                quisquam excepturi, sunt possimus eius libero?
-              </p>
-              <div class="foods__item-buy">
-                <a href="#">Buy</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="foods__item">
-            <div class="foods__item-image">
-              <img src="/images/food-placeholder.png" alt="Food image" />
-              <span>Diwek</span>
-            </div>
-
-            <div class="foods__item-content">
-              <h3 class="foods__item-name">Name</h3>
-              <div class="foods__item-rating"></div>
-              <p class="foods__item-description">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorum corporis aliquam aspernatur repudiandae architecto
-                quisquam excepturi, sunt possimus eius libero?
-              </p>
-              <div class="foods__item-buy">
-                <a href="#">Buy</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="foods__list"></div>
       </section>
 
       <footer class="footer">
@@ -157,5 +114,26 @@
         </div>
       </footer>
     </main>
+
+    <template id="food-template">
+      <div class="foods__item">
+        <div class="foods__item-image">
+          <img src="" alt="Food image" />
+          <span class="foods__item-city"></span>
+        </div>
+
+        <div class="foods__item-content">
+          <h3 class="foods__item-name">Name</h3>
+          <div class="foods__item-rating">
+            <img src="/images/star-icon.svg" alt="Star icon" />
+            <span></span>
+          </div>
+          <p class="foods__item-description"></p>
+          <div class="foods__item-buy">
+            <a href="#">Buy</a>
+          </div>
+        </div>
+      </div>
+    </template>
   </body>
 </html>
