@@ -1,6 +1,6 @@
 const btnOpenEl = document.querySelector(".btn-open");
 const btnCloseEl = document.querySelector(".btn-close");
-const navEl = document.querySelector(".navigation");
+const navEl = document.querySelector(".nav");
 const navHeight = navEl.getBoundingClientRect().height;
 
 btnOpenEl.addEventListener("click", () => {
