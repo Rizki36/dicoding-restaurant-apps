@@ -230,3 +230,74 @@ a {
     text-align: center;
   }
 }
+
+.foods {
+  .foods__title {
+    color: $primary;
+    font-weight: 800;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 36px;
+    line-height: 32px;
+  }
+  .foods__list {
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .foods__item {
+    position: relative;
+    max-width: 282px;
+    background-color: #fde9dd;
+    border-radius: 16px;
+  }
+  .foods__item-image {
+    height: 145px;
+    padding-left: 16px;
+  }
+  .foods__item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 7px solid #e75659;
+  }
+  .foods__item-image span {
+    position: absolute;
+    padding: 2px 20px;
+    border-radius: 14px;
+    background-color: #fff;
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+  }
+  .foods__item-content {
+    padding: 16px 16px 44px;
+  }
+  .foods__item-description {
+    font-size: 16px;
+    color: #3a3a3a;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .foods__item-buy {
+    bottom: -16px;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .foods__item-buy a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 42px;
+    padding: 10px 20px;
+    background-color: $primary;
+  }
+}
