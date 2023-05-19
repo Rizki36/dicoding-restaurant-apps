@@ -156,7 +156,7 @@ a {
   padding: 24px;
 
   .hero__left {
-    padding-top: 60px;
+    padding-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -388,6 +388,7 @@ a {
     }
     .nav__menu-item a {
       padding: 8px;
+      margin: 2px;
       background-color: transparent;
       box-shadow: none;
       border-radius: 0;
