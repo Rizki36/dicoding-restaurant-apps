@@ -18,7 +18,6 @@ btnCloseEl.addEventListener("click", () => {
 // add background color to nav on scroll for mobile
 window.addEventListener("scroll", () => {
   const scrollHeight = window.pageYOffset;
-  if (window.innerWidth > 768) return;
 
   if (scrollHeight > navHeight) {
     navEl.classList.add("nav-scroll");

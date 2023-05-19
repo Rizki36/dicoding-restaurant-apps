@@ -179,6 +179,10 @@ a {
     margin-top: 16px;
   }
 
+  .hero__right {
+    display: none;
+  }
+
   .btn-find {
     margin-top: 42px;
     background-color: #fecc64;
@@ -338,5 +342,92 @@ a {
 
   a {
     color: inherit;
+  }
+}
+
+// media queries for desktop
+@media (min-width: 768px) {
+  .nav {
+    .btn-open {
+      display: none;
+    }
+    .btn-close__container {
+      display: none;
+    }
+    .nav__menu-container {
+      position: relative;
+      height: auto;
+      width: auto;
+      top: 0;
+      overflow: auto;
+      display: flex;
+      background-color: transparent;
+      animation: none;
+      padding: 0;
+    }
+    .nav__menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 42px;
+      margin-right: 30px;
+      margin-top: 0;
+    }
+    .nav__menu-item {
+      color: #3a3a3a;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .nav__menu-item a {
+      padding: 8px;
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  }
+
+  .hero {
+    justify-content: space-between;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .hero__wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: normal;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .hero__left {
+      align-items: flex-start;
+    }
+    .hero__left-title {
+      text-align: left;
+      font-size: 64px;
+      line-height: 70px;
+      max-width: 540px;
+    }
+    .hero__left-subtitle {
+      text-align: left;
+      font-size: 16px;
+      max-width: none;
+    }
+    .hero__right {
+      display: flex;
+    }
+    .hero__right img {
+      padding-top: 72px;
+    }
+    .btn-find {
+      margin-top: 34px;
+      font-size: 16px;
+      padding: 18px 27px;
+    }
   }
 }
