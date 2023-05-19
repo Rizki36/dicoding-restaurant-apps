@@ -205,11 +205,11 @@ a {
   margin-bottom: 30px;
 
   .features__container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     align-items: center;
     justify-content: center;
     gap: 42px;
-    flex-wrap: wrap;
   }
 
   .features__item {
@@ -400,7 +400,8 @@ a {
     padding: 100px 50px 120px;
 
     .hero__wrapper {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       flex-direction: row;
       justify-content: space-between;
       align-items: normal;
@@ -443,8 +444,6 @@ a {
     height: 200px;
 
     .features__container {
-      display: flex;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
       margin-left: auto;
@@ -452,6 +451,7 @@ a {
       max-width: 1200px;
       position: absolute;
       top: -50px;
+      grid-template-columns: repeat(3, 1fr);
       background-color: #fff;
       border-radius: 16px;
       padding: 30px 62px;
