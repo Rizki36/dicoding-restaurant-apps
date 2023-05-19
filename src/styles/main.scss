@@ -156,7 +156,7 @@ a {
   padding: 24px;
 
   .hero__left {
-    padding-top: 100px;
+    padding-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -396,8 +396,7 @@ a {
 
   .hero {
     justify-content: space-between;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: 100px 50px 120px;
 
     .hero__wrapper {
       display: flex;
@@ -428,7 +427,7 @@ a {
       display: flex;
     }
     .hero__right img {
-      padding-top: 72px;
+      padding-top: 30px;
     }
     .btn-find {
       margin-top: 34px;
@@ -440,7 +439,7 @@ a {
   .features {
     border-bottom: none;
     position: relative;
-    margin-bottom: 70px;
+    height: 200px;
 
     .features__container {
       display: flex;
@@ -456,6 +455,20 @@ a {
       border-radius: 16px;
       padding: 30px 62px;
       box-shadow: 0px 2px 16px 0px #3a3a3a40;
+    }
+  }
+  .foods {
+    .foods__title {
+      font-size: 48px;
+      max-width: none;
+      margin-bottom: 62px;
+    }
+    .foods__title br {
+      display: none;
+    }
+    .foods__list {
+      row-gap: 50px;
+      column-gap: 40px;
     }
   }
 }
