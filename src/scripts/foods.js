@@ -12,11 +12,12 @@ const render = () => {
   data.restaurants.forEach((food) => {
     const foodElement = foodTemplate.cloneNode(true);
     // fill the template with data
+    foodElement.querySelector(".foods__item").setAttribute("tabindex", 0);
     foodElement.querySelector(".foods__item-name").textContent = food.name;
     foodElement.querySelector(".foods__item-image img").src = food.pictureId;
     foodElement.querySelector(
       ".foods__item-image img"
-    ).alt = `Image of ${food.name} - ${food.city}`;
+    ).alt = `Image of ${food.name} restaurant`;
     foodElement.querySelector(".foods__item-rating span").textContent =
       food.rating;
     foodElement.querySelector(".foods__item-description").textContent =
