@@ -97,8 +97,13 @@ a {
   }
   .btn-close,
   .btn-open {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+  }
+  .btn-close img,
+  .btn-open img {
+    width: 44px;
+    height: 44px;
   }
   .btn-close:focus {
     outline: 1px solid #fecc64;
@@ -370,6 +375,10 @@ a {
     border-radius: 42px;
     padding: 10px 20px;
     background-color: $primary;
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 
@@ -429,6 +438,9 @@ a {
       background-color: transparent;
       box-shadow: none;
       border-radius: 0;
+      display: inline-block;
+      min-height: 44px;
+      min-width: 44px;
     }
   }
 
