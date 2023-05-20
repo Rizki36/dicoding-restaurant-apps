@@ -14,6 +14,9 @@ const render = () => {
     // fill the template with data
     foodElement.querySelector(".foods__item-name").textContent = food.name;
     foodElement.querySelector(".foods__item-image img").src = food.pictureId;
+    foodElement.querySelector(
+      ".foods__item-image img"
+    ).alt = `Image of ${food.name} - ${food.city}`;
     foodElement.querySelector(".foods__item-rating span").textContent =
       food.rating;
     foodElement.querySelector(".foods__item-description").textContent =
