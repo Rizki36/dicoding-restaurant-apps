@@ -392,11 +392,20 @@ a {
   display: grid;
   place-items: center;
 
-  a {
-    color: inherit;
-    display: inline-block;
-    min-height: 44px;
-    min-width: 44px;
+  div {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+
+    a {
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      text-align: center;
+    }
   }
 }
 
