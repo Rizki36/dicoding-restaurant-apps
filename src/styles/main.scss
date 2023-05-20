@@ -1,4 +1,4 @@
-$primary: #e75659;
+$primary: #ae1414;
 $secondary: #fecc64;
 
 // Reset CSS
@@ -317,7 +317,7 @@ a {
     height: 100%;
     object-fit: cover;
     border-radius: 16px;
-    border: 7px solid #e75659;
+    border: 7px solid #ae1414;
   }
   .foods__item-image span {
     position: absolute;
@@ -466,7 +466,8 @@ a {
       display: flex;
     }
     .hero__right img {
-      padding-top: 30px;
+      height: 343px;
+      width: auto;
     }
     .btn-find {
       margin-top: 34px;
