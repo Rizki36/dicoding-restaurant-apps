@@ -1,8 +1,9 @@
-import data from "../DATA.json";
+import data from "@/DATA.json";
 
 // get template
 const foodTemplate = document
   .querySelector("#food-template")
+  // @ts-ignore
   .cloneNode(true).content;
 
 // get food list
