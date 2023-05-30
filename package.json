@@ -2,7 +2,7 @@
   "name": "restaurant-apps",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
@@ -37,6 +37,8 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "ts-loader": "^9.4.3",
+    "typescript": "^5.0.4"
   }
 }
