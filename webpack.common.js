@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, "src/scripts/index.js"),
+    app: path.resolve(__dirname, "src/scripts/index.ts"),
     // sw: path.resolve(__dirname, "src/scripts/sw.js"),
   },
   output: {
@@ -18,7 +18,18 @@ module.exports = {
         test: /\.(s(a|c)ss)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.ts?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
     ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
