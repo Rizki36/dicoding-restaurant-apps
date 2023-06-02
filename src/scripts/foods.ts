@@ -3,7 +3,7 @@ import data from "@/DATA.json";
 // get template
 const foodTemplate = document
   .querySelector("#food-template")
-  // @ts-ignore
+  // @ts-ignore - cloneNode() is not a function
   .cloneNode(true).content;
 
 // get food list
