@@ -41,6 +41,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "lit": "^2.7.5",
     "regenerator-runtime": "^0.13.9",
     "ts-loader": "^9.4.3",
     "typescript": "^5.0.4"

@@ -50,113 +50,17 @@
       </div>
     </nav>
 
-    <!-- Main -->
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <img
-          class="hero__background"
-          src="/images/heros/hero-image_2.jpg"
-          alt="Hero background"
-        />
-        <div class="hero__wrapper">
-          <!-- left hero -->
-          <div class="hero__left">
-            <h1 class="hero__left-title">All Restaurants Near you are here</h1>
-            <p class="hero__left-subtitle">
-              We make it easy for you to find delicious restaurants around you.
-            </p>
-            <a class="btn-find" href="#">Let’s Find</a>
-          </div>
+    <div id="content">
+      <main-page></main-page>
+    </div>
 
-          <!-- right hero -->
-          <div class="hero__right">
-            <img src="/images/hero.png" alt="Hero image" />
-          </div>
-        </div>
-      </section>
-
-      <!-- Features -->
-      <section class="features">
-        <div class="features__container">
-          <!-- TODO: create component after integrate with react -->
-          <div class="features__item">
-            <div class="features__item-icon">
-              <img src="./images/features/fast.svg" alt="Fast Delivery" />
-            </div>
-            <div class="features__item-content">
-              <h2 class="features__item-title">Fast Delivery</h2>
-              <p class="features__item-description">
-                We can deliver your order quickly
-              </p>
-            </div>
-          </div>
-          <div class="features__item">
-            <div class="features__item-icon">
-              <img src="./images/features/centralized.svg" alt="Centralized" />
-            </div>
-            <div class="features__item-content">
-              <h2 class="features__item-title">Centralized</h2>
-              <p class="features__item-description">
-                All restaurants become one here
-              </p>
-            </div>
-          </div>
-          <div class="features__item">
-            <div class="features__item-icon">
-              <img src="./images/features/trusted.svg" alt="Trusted" />
-            </div>
-            <div class="features__item-content">
-              <h2 class="features__item-title">Trusted</h2>
-              <p class="features__item-description">
-                Food is guaranteed to be hygienic
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Foods -->
-      <section id="foods" class="foods">
-        <h2 class="foods__title">
-          Our <br />
-          Best Menu
-        </h2>
-        <div class="foods__list"></div>
-      </section>
-
-      <footer class="footer">
-        <div>
-          Created with <span>❤️</span> by
-          <a
-            href="https://devfitra.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Fitra</a
-          >
-        </div>
-      </footer>
-    </main>
-
-    <template id="food-template">
-      <div class="foods__item">
-        <div class="foods__item-image">
-          <img src="" alt="" />
-          <span class="foods__item-city"></span>
-        </div>
-
-        <div class="foods__item-content">
-          <h3 class="foods__item-name">Name</h3>
-          <div class="foods__item-rating">
-            <img src="/images/star-icon.svg" alt="Rating" />
-            <span></span>
-          </div>
-          <p class="foods__item-description"></p>
-          <div class="foods__item-buy">
-            <a href="#">Buy</a>
-          </div>
-        </div>
+    <footer class="footer">
+      <div>
+        Created with <span>❤️</span> by
+        <a href="https://devfitra.com" target="_blank" rel="noopener noreferrer"
+          >Fitra</a
+        >
       </div>
-    </template>
+    </footer>
   </body>
 </html>
