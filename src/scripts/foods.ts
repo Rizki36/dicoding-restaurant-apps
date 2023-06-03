@@ -1,4 +1,4 @@
-import data from "@/DATA.json";
+import data from "@/data/restaurants.json";
 
 // get template
 const foodTemplate = document
