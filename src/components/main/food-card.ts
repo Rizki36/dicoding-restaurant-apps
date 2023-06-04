@@ -72,6 +72,8 @@ export class FoodCard extends LitElement {
       color: #3a3a3a;
       font-size: 16px;
       font-weight: 800;
+      margin-block-start: 0;
+      margin-block-end: 0;
     }
     .foods__item-rating {
       display: flex;
@@ -91,6 +93,8 @@ export class FoodCard extends LitElement {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      margin-block-start: 0;
+      margin-block-end: 0;
     }
     .foods__item-buy {
       bottom: -16px;
