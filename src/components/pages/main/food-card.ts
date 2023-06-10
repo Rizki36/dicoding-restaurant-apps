@@ -26,7 +26,7 @@ export class FoodCard extends LitElement {
           </div>
           <p class="foods__item-description">${this.description}</p>
           <div class="foods__item-buy">
-            <a href="#">Buy</a>
+            <a href="/detail">Buy</a>
           </div>
         </div>
       </div>

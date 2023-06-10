@@ -1,11 +1,12 @@
 import "regenerator-runtime"; /* for async await transpile */
 import "../styles/main.scss";
-import App from "@/views/app";
-import "@/views/pages/main-page";
+import App from "@/scripts/app";
 
 const app = new App({
   navBtnCloseEl: document.querySelector(".btn-close"),
   navBtnOpenEl: document.querySelector(".btn-open"),
   navEl: document.querySelector(".nav"),
-  content: document.querySelector(".content"), // TODO: add content element
+  content: document.querySelector("#content"),
 });
+
+window.addEventListener("load", () => app.renderPage());

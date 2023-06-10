@@ -1,7 +1,7 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { map } from "lit/directives/map.js";
 import { customElement } from "lit/decorators.js";
-import "@/components/main/food-card";
+import "@/components/pages/main/food-card";
 import { COLORS } from "@/constants";
 import data from "@/data/restaurants.json";
 
