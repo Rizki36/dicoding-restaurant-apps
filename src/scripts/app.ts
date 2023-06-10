@@ -1,5 +1,5 @@
 import NavigationInitiator from "@/utils/navigation-initiator";
-import { ActionResult, Router } from "@vaadin/router";
+import { Router } from "@vaadin/router";
 
 type AppProps = {
   navBtnOpenEl: Element;
