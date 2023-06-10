@@ -1,4 +1,5 @@
 import NavigationInitiator from "@/utils/navigation-initiator";
+import { Router } from "@vaadin/router";
 
 type AppProps = {
   navBtnOpenEl: Element;
@@ -28,6 +29,27 @@ class App {
       btnCloseEl: this._navBtnCloseEl,
       navEl: this._navEl,
     });
+  }
+
+  async renderPage() {
+    const router = new Router(this._content);
+
+    router.setRoutes([
+      {
+        path: "/",
+        component: "main-page",
+        // @ts-ignore - fix this
+        action: () => import("@/components/pages/main"),
+      },
+      {
+        path: "/detail",
+        component: "detail-page",
+        // @ts-ignore - fix this
+        action: () => import("@/components/pages/detail-page"),
+      },
+    ]);
+
+    return router;
   }
 }
 
