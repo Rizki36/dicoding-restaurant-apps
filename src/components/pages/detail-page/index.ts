@@ -148,6 +148,9 @@ export class DetailPage extends LitElement {
       font-weight: bold;
       margin-bottom: 16px;
     }
+    .section-3__reviewer-name {
+      font-weight: bold;
+    }
     .section-3__reviewed-at {
       font-size: 12px;
       margin-bottom: 8px;
