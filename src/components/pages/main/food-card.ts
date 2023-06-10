@@ -14,7 +14,11 @@ export class FoodCard extends LitElement {
     return html`
       <div class="foods__item">
         <div class="foods__item-image">
-          <img src="${this.pictureId}" alt="" />
+          <img
+            src="https://restaurant-api.dicoding.dev/images/medium/${this
+              .pictureId}"
+            alt=""
+          />
           <span class="foods__item-city">${this.city}</span>
         </div>
 

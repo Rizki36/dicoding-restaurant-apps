@@ -1,12 +1,45 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { map } from "lit/directives/map.js";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import "@/components/pages/main/food-card";
 import { COLORS } from "@/constants";
-import data from "@/data/restaurants.json";
+
+type Food = {
+  id: string;
+  name: string;
+  description: string;
+  pictureId: string;
+  city: string;
+  rating: number;
+};
 
 @customElement("foods-section")
 export class FoodsSection extends LitElement {
+  @property()
+  loading = false;
+
+  @property()
+  foods = [] as Food[];
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._fetchData();
+  }
+
+  async _fetchData() {
+    try {
+      this.loading = true;
+
+      const response = await fetch("https://restaurant-api.dicoding.dev/list");
+      const json = await response.json();
+      this.foods = json.restaurants;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.loading = false;
+    }
+  }
+
   render() {
     return html`
       <section id="foods" class="foods">
@@ -16,7 +49,7 @@ export class FoodsSection extends LitElement {
         </h2>
         <div class="foods__list">
           ${map(
-            data.restaurants,
+            this.foods,
             (restaurant) => html`<food-card
               pictureId=${restaurant.pictureId}
               city=${restaurant.city}
