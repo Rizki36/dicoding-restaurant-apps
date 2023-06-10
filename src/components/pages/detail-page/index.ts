@@ -160,6 +160,11 @@ export class DetailPage extends LitElement {
       .detail-page {
         grid-template-columns: 1fr 1fr 338px;
       }
+      .section-2__title {
+        margin-top: 0;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
     }
   `;
 }
