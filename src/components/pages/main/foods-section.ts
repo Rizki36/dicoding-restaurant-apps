@@ -1,6 +1,6 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { map } from "lit/directives/map.js";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, state } from "lit/decorators.js";
 import "@/components/pages/main/food-card";
 import { COLORS } from "@/constants";
 
@@ -15,10 +15,9 @@ type Food = {
 
 @customElement("foods-section")
 export class FoodsSection extends LitElement {
-  @property()
+  @state()
   loading = false;
-
-  @property()
+  @state()
   foods = [] as Food[];
 
   connectedCallback() {

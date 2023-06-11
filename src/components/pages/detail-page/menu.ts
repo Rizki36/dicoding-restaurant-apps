@@ -1,12 +1,12 @@
 import { COLORS } from "@/constants";
 import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { customElement, property, state } from "lit/decorators.js";
 
 type ActiveSection = "minuman" | "makanan";
 
 @customElement("menu-section")
 export class Menu extends LitElement {
-  @property() activeSection: ActiveSection = "minuman";
+  @state() activeSection: ActiveSection = "minuman";
 
   @property() minuman: { name: string }[] = [];
   @property() makanan: { name: string }[] = [];
