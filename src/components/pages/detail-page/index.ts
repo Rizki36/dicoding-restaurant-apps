@@ -1,33 +1,79 @@
+import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
+import "@/components/pages/detail-page/review-item";
+
+type Data = {
+  id: string;
+  name: string;
+  description: string;
+  city: string;
+  address: string;
+  pictureId: string;
+  categories: {
+    name: string;
+  }[];
+  menus: {
+    foods: {
+      name: string;
+    }[];
+    drinks: {
+      name: string;
+    }[];
+  };
+  rating: number;
+  customerReviews: {
+    name: string;
+    review: string;
+    date: string;
+  }[];
+};
 
 @customElement("detail-page")
 export class DetailPage extends LitElement {
+  @property() loading = false;
+  @property() data: Data | null = null;
+
   connectedCallback() {
     super.connectedCallback();
+    this._fetchData();
+  }
+
+  getRatePercentage() {
+    return ((this.data?.rating ?? 0) / 5) * 100;
+  }
+
+  async _fetchData() {
+    try {
+      this.loading = true;
+
+      const arrayUrl = UrlParser.parseActiveUrlWithoutCombiner();
+      const response = await fetch(
+        `https://restaurant-api.dicoding.dev/detail/${arrayUrl.id}`
+      );
+      const json = await response.json();
+      this.data = json.restaurant;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.loading = false;
+    }
   }
 
   render() {
     return html`<div class="detail-page">
       <div class="section-1">
         <img
-          src="https://restaurant-api.dicoding.dev/images/medium/08"
-          alt=""
+          src="https://restaurant-api.dicoding.dev/images/medium/${this.data
+            ?.pictureId}"
+          alt="Image of ${this.data?.name}"
         />
       </div>
       <div class="section-2">
-        <h1 class="section-2__title">Fairy Cafe</h1>
-        <div class="section-2__location">Lokasi : Malang</div>
+        <h1 class="section-2__title">${this.data?.name}</h1>
+        <div class="section-2__location">Lokasi : ${this.data?.address}</div>
         <div><b>Deskripsi</b></div>
-        <p class="section-2__description">
-          But I must explain to you how all this mistaken idea of denouncing
-          pleasure and praising pain was born and I will give you a complete
-          account of the system, and expound the actual teachings of the great
-          explorer of the truth, the master-builder of human happiness. No one
-          rejects, dislikes, or avoids pleasure itself, because it is pleasure,
-          but because those who do not know how to pursue pleasure rationally
-          encounter consequence...
-        </p>
+        <p class="section-2__description">${this.data?.description}</p>
         <div class="section-2__menu">
           <div>Minuman</div>
           <div>Makanan</div>
@@ -37,9 +83,13 @@ export class DetailPage extends LitElement {
         <div class="section-3__rate-container">
           <h2 class="section-3__rate-title">Ulasan Pembeli</h2>
           <div class="section-3__rate-number">
-            4.5<span class="section-3__rate-total-number">/5</span>
+            ${this.data?.rating}<span class="section-3__rate-total-number"
+              >/5</span
+            >
           </div>
-          <div class="section-3__rate-summary">90% Pelanggan Merasa Puas</div>
+          <div class="section-3__rate-summary">
+            ${this.getRatePercentage()}% Pelanggan Merasa Puas
+          </div>
           <div class="section-3__rate-actions">
             <div class="section-3__rate-action">Tandai</div>
             <div class="section-3__rate-action">Bagikan</div>
@@ -49,16 +99,13 @@ export class DetailPage extends LitElement {
         <div class="section-3__review-container">
           <div class="section-3__review-title">Ulasan Pembeli</div>
           <div class="section-3__review-items">
-            <div class="section-3__review-item">
-              <div class="section-3__reviewer-image"></div>
-              <div>
-                <div class="section-3__reviewer-name">Ahmad</div>
-                <div class="section-3__reviewed-at">13 November 2019</div>
-                <div class="section-3__review">
-                  Tidak rekomendasi untuk pelajar!
-                </div>
-              </div>
-            </div>
+            ${(this.data?.customerReviews ?? []).map(
+              (item) => html`<review-item
+                name="${item.name}"
+                date="${item.date}"
+                review="${item.review}"
+              ></review-item>`
+            )}
           </div>
         </div>
       </div>
@@ -80,6 +127,7 @@ export class DetailPage extends LitElement {
       column-gap: 48px;
       padding: 24px;
       padding-top: 0;
+      min-height: 100vh;
     }
 
     .section-1 img {

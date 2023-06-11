@@ -1,16 +1,22 @@
+type UrlSplitter = {
+  resource: string | null;
+  id: string | null;
+  verb: string | null;
+};
+
 const UrlParser = {
   parseActiveUrlWithCombiner() {
     const url = window.location.hash.slice(1).toLowerCase();
-    const splitedUrl = this._urlSplitter(url);
-    return this._urlCombiner(splitedUrl);
+    const splittedUrl = this._urlSplitter(url);
+    return this._urlCombiner(splittedUrl);
   },
 
-  parseActiveUrlWithoutCombiner() {
+  parseActiveUrlWithoutCombiner(): UrlSplitter {
     const url = window.location.hash.slice(1).toLowerCase();
     return this._urlSplitter(url);
   },
 
-  _urlSplitter(url) {
+  _urlSplitter(url: string): UrlSplitter {
     const urlsSplits = url.split("/");
     return {
       resource: urlsSplits[1] || null,
@@ -19,11 +25,11 @@ const UrlParser = {
     };
   },
 
-  _urlCombiner(splitedUrl) {
+  _urlCombiner(splittedUrl) {
     return (
-      (splitedUrl.resource ? `/${splitedUrl.resource}` : "/") +
-      (splitedUrl.id ? "/:id" : "") +
-      (splitedUrl.verb ? `/${splitedUrl.verb}` : "")
+      (splittedUrl.resource ? `/${splittedUrl.resource}` : "/") +
+      (splittedUrl.id ? "/:id" : "") +
+      (splittedUrl.verb ? `/${splittedUrl.verb}` : "")
     );
   },
 };
