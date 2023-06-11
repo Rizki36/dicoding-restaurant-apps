@@ -3,8 +3,9 @@ import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "@/components/pages/detail-page/review-item";
 import "@/components/pages/detail-page/menu";
+import "@/components/pages/detail-page/add-review";
 
-type Data = {
+export type RestaurantData = {
   id: string;
   name: string;
   description: string;
@@ -33,14 +34,14 @@ type Data = {
 @customElement("detail-page")
 export class DetailPage extends LitElement {
   @property() loading = false;
-  @property() data: Data | null = null;
+  @property() data: RestaurantData | null = null;
 
   connectedCallback() {
     super.connectedCallback();
     this._fetchData();
   }
 
-  getRatePercentage() {
+  _getRatePercentage() {
     return Math.round(((this.data?.rating ?? 0) / 5) * 100);
   }
 
@@ -59,6 +60,13 @@ export class DetailPage extends LitElement {
     } finally {
       this.loading = false;
     }
+  }
+
+  _addReviewCallback(event: CustomEvent) {
+    this.data = {
+      ...this.data,
+      customerReviews: event.detail ?? [],
+    };
   }
 
   render() {
@@ -89,7 +97,7 @@ export class DetailPage extends LitElement {
             >
           </div>
           <div class="section-3__rate-summary">
-            ${this.getRatePercentage()}% Pelanggan Merasa Puas
+            ${this._getRatePercentage()}% Pelanggan Merasa Puas
           </div>
           <div class="section-3__rate-actions">
             <div class="section-3__rate-action">Tandai</div>
@@ -108,6 +116,9 @@ export class DetailPage extends LitElement {
               ></review-item>`
             )}
           </div>
+          <add-review
+            @on-success-add-review=${this._addReviewCallback}
+          ></add-review>
         </div>
       </div>
     </div>`;
