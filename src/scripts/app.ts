@@ -1,5 +1,6 @@
 import NavigationInitiator from "@/utils/navigation-initiator";
-import router from "./router";
+import UrlParser from "../utils/url-parser";
+import routes from "./routes";
 
 type AppProps = {
   navBtnOpenEl: Element;
@@ -32,7 +33,9 @@ class App {
   }
 
   async renderPage() {
-    return router;
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    const page = routes[url];
+    this._content.innerHTML = await page.renderPage();
   }
 }
 
