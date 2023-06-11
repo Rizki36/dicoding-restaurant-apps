@@ -2,6 +2,7 @@ import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "@/components/pages/detail-page/review-item";
+import "@/components/pages/detail-page/menu";
 
 type Data = {
   id: string;
@@ -74,10 +75,10 @@ export class DetailPage extends LitElement {
         <div class="section-2__location">Lokasi : ${this.data?.address}</div>
         <div><b>Deskripsi</b></div>
         <p class="section-2__description">${this.data?.description}</p>
-        <div class="section-2__menu">
-          <div>Minuman</div>
-          <div>Makanan</div>
-        </div>
+        <menu-section
+          .makanan=${this.data?.menus?.foods ?? []}
+          .minuman=${this.data?.menus?.drinks ?? []}
+        ></menu-section>
       </div>
       <div class="section-3">
         <div class="section-3__rate-container">
