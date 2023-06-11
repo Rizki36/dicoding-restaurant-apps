@@ -34,11 +34,6 @@ export class ReviewItem extends LitElement {
       border-radius: 50%;
       background-color: #eeeeee;
     }
-    .section-3__review-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 16px;
-    }
     .section-3__reviewer-name {
       font-weight: bold;
     }

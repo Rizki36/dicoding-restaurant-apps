@@ -40,7 +40,7 @@ export class DetailPage extends LitElement {
   }
 
   getRatePercentage() {
-    return ((this.data?.rating ?? 0) / 5) * 100;
+    return Math.round(((this.data?.rating ?? 0) / 5) * 100);
   }
 
   async _fetchData() {
@@ -185,27 +185,10 @@ export class DetailPage extends LitElement {
       margin-top: 24px;
       border-top: 1px solid #eeeeee;
     }
-    .section-3__review-item {
-      display: flex;
-      column-gap: 12px;
-    }
-    .section-3__reviewer-image {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: #eeeeee;
-    }
     .section-3__review-title {
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 16px;
-    }
-    .section-3__reviewer-name {
-      font-weight: bold;
-    }
-    .section-3__reviewed-at {
-      font-size: 12px;
-      margin-bottom: 8px;
     }
 
     @media (min-width: 1180px) {
