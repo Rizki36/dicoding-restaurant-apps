@@ -51,6 +51,7 @@ export class FoodsSection extends LitElement {
           ${map(
             this.foods,
             (restaurant) => html`<food-card
+              id=${restaurant.id}
               pictureId=${restaurant.pictureId}
               city=${restaurant.city}
               name=${restaurant.name}

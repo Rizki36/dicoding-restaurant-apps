@@ -4,6 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 
 @customElement("food-card")
 export class FoodCard extends LitElement {
+  @property({ type: String }) id = "";
   @property({ type: String }) pictureId = "";
   @property({ type: String }) city = "";
   @property({ type: String }) name = "";
@@ -30,7 +31,7 @@ export class FoodCard extends LitElement {
           </div>
           <p class="foods__item-description">${this.description}</p>
           <div class="foods__item-buy">
-            <a href="/detail">Buy</a>
+            <a href="/detail/${this.id}">Buy</a>
           </div>
         </div>
       </div>
