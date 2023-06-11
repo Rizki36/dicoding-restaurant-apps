@@ -31,6 +31,7 @@ export class ReviewItem extends LitElement {
     .section-3__reviewer-image {
       width: 48px;
       height: 48px;
+      flex-shrink: 0;
       border-radius: 50%;
       background-color: #eeeeee;
     }
