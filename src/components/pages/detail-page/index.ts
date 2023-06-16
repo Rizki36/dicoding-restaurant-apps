@@ -4,6 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 import "@/components/pages/detail-page/review-item";
 import "@/components/pages/detail-page/menu";
 import "@/components/pages/detail-page/add-review";
+import "@/components/pages/detail-page/rate";
 
 export type RestaurantData = {
   id: string;
@@ -41,10 +42,6 @@ export class DetailPage extends LitElement {
     this._fetchData();
   }
 
-  _getRatePercentage() {
-    return Math.round(((this.data?.rating ?? 0) / 5) * 100);
-  }
-
   async _fetchData() {
     try {
       this.loading = true;
@@ -80,7 +77,24 @@ export class DetailPage extends LitElement {
       </div>
       <div class="section-2">
         <h1 class="section-2__title">${this.data?.name}</h1>
-        <div class="section-2__location">Lokasi : ${this.data?.address}</div>
+        <div class="section-2__location">
+          <svg
+            width="16"
+            height="17"
+            viewBox="0 0 16 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.70894 7.74015H10.4784M7.59367 4.79134V10.689M14.1873 7.74015C14.1873 11.2306 11.5918 14.1013 8.26614 15.8348C7.84357 16.0551 7.34377 16.0551 6.9212 15.8348C3.59551 14.1013 1 11.2306 1 7.74015C1 4.01767 3.95208 1 7.59367 1C11.2353 1 14.1873 4.01767 14.1873 7.74015Z"
+              stroke="#E75659"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Lokasi : ${this.data?.address}
+        </div>
         <div><b>Deskripsi</b></div>
         <p class="section-2__description">${this.data?.description}</p>
         <menu-section
@@ -89,24 +103,40 @@ export class DetailPage extends LitElement {
         ></menu-section>
       </div>
       <div class="section-3">
-        <div class="section-3__rate-container">
-          <h2 class="section-3__rate-title">Ulasan Pembeli</h2>
-          <div class="section-3__rate-number">
-            ${this.data?.rating}<span class="section-3__rate-total-number"
-              >/5</span
-            >
-          </div>
-          <div class="section-3__rate-summary">
-            ${this._getRatePercentage()}% Pelanggan Merasa Puas
-          </div>
-          <div class="section-3__rate-actions">
-            <div class="section-3__rate-action">Tandai</div>
-            <div class="section-3__rate-action">Bagikan</div>
-          </div>
-        </div>
+        <rate-section .data=${this.data}></rate-section>
 
         <div class="section-3__review-container">
-          <div class="section-3__review-title">Ulasan Pembeli</div>
+          <div class="section-3__review-title">
+            <svg
+              width="23"
+              height="23"
+              viewBox="0 0 23 23"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <mask
+                id="mask0_102_330"
+                style="mask-type:luminance"
+                maskUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width="23"
+                height="23"
+              >
+                <path d="M23 0H0V23H23V0Z" fill="white" />
+              </mask>
+              <g mask="url(#mask0_102_330)">
+                <path
+                  d="M11.5 20.125C16.2635 20.125 20.125 16.2635 20.125 11.5C20.125 6.73655 16.2635 2.875 11.5 2.875C6.73655 2.875 2.875 6.73655 2.875 11.5C2.875 12.9256 3.22089 14.2705 3.83333 15.4552L2.875 20.125L7.54477 19.1667C8.7295 19.7791 10.0744 20.125 11.5 20.125Z"
+                  stroke="#292929"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+            Ulasan Pembeli
+          </div>
           <div class="section-3__review-items">
             ${(this.data?.customerReviews ?? []).map(
               (item) => html`<review-item
@@ -154,6 +184,9 @@ export class DetailPage extends LitElement {
     }
     .section-2__location {
       margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      column-gap: 12px;
     }
     .section-2__menu {
       display: flex;
@@ -162,36 +195,6 @@ export class DetailPage extends LitElement {
       margin-bottom: 48px;
     }
 
-    .section-3__rate-container {
-      padding: 18px;
-      border: 1px solid #eeeeee;
-      border-radius: 8px;
-    }
-    .section-3__rate-title {
-      text-align: center;
-      margin-bottom: 12px;
-      font-size: 32px;
-    }
-    .section-3__rate-number {
-      font-size: 48px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .section-3__rate-total-number {
-      font-size: 24px;
-    }
-    .section-3__rate-summary {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .section-3__rate-actions {
-      display: flex;
-      justify-content: center;
-      column-gap: 24px;
-    }
-    .section-3__rate-action {
-      font-weight: bold;
-    }
     .section-3__review-container {
       padding-top: 24px;
       margin-top: 24px;
@@ -201,6 +204,9 @@ export class DetailPage extends LitElement {
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      column-gap: 12px;
     }
 
     @media (min-width: 1180px) {

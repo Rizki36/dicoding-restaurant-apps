@@ -55,6 +55,7 @@ export class Menu extends LitElement {
     }
     .section-2__menu {
       margin-top: 24px;
+      margin-bottom: 48px;
     }
     .section-2__menu-item {
       background-color: transparent;
