@@ -1,24 +1,16 @@
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { map } from "lit/directives/map.js";
 import { customElement, state } from "lit/decorators.js";
-import "@/components/pages/main/food-card";
+import "@/components/shared/food-card";
 import { COLORS } from "@/constants";
-
-type Food = {
-  id: string;
-  name: string;
-  description: string;
-  pictureId: string;
-  city: string;
-  rating: number;
-};
+import { Food } from "@/types";
 
 @customElement("foods-section")
 export class FoodsSection extends LitElement {
   @state()
   loading = false;
   @state()
-  foods = [] as Food[];
+  foods: Food[] = [];
 
   connectedCallback() {
     super.connectedCallback();

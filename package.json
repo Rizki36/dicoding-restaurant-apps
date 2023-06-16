@@ -41,6 +41,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "idb": "^7.1.1",
     "lit": "^2.7.5",
     "regenerator-runtime": "^0.13.9",
     "ts-loader": "^9.4.3",
