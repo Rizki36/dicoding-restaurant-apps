@@ -34,7 +34,7 @@ export class FoodsSection extends LitElement {
   render() {
     return html`
       <section id="foods" class="foods">
-        <h2 class="foods__title">
+        <h2 tabindex="0" class="foods__title">
           Our <br />
           Best Menu
         </h2>

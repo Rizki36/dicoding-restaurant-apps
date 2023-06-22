@@ -1,10 +1,11 @@
 import UrlParser from "@/utils/url-parser";
-import { LitElement, css, html } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import "@/components/pages/detail-page/review-item";
 import "@/components/pages/detail-page/menu";
 import "@/components/pages/detail-page/add-review";
 import "@/components/pages/detail-page/rate";
+import { SKIP_CONTENT_TARGET } from "@/constants";
 
 export type RestaurantData = {
   id: string;
@@ -66,7 +67,7 @@ export class DetailPage extends LitElement {
     };
   }
 
-  render() {
+  protected render() {
     return html`<div class="detail-page">
       <div class="section-1">
         <img
@@ -76,7 +77,14 @@ export class DetailPage extends LitElement {
         />
       </div>
       <div class="section-2">
-        <h1 class="section-2__title">${this.data?.name}</h1>
+        <h1
+          id="${SKIP_CONTENT_TARGET}"
+          data-scroll-offset="1000"
+          tabindex="0"
+          class="section-2__title"
+        >
+          ${this.data?.name}
+        </h1>
         <div class="section-2__location">
           <svg
             width="16"
@@ -154,70 +162,7 @@ export class DetailPage extends LitElement {
     </div>`;
   }
 
-  static styles? = css`
-    * {
-      box-sizing: border-box;
-      color: #3a3a3a;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
-
-    .detail-page {
-      margin-top: 118px;
-      display: grid;
-      grid-template-columns: 1fr;
-      column-gap: 48px;
-      padding: 24px;
-      padding-top: 0;
-      min-height: 100vh;
-    }
-
-    .section-1 img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .section-2__title {
-      margin-top: 12px;
-    }
-    .section-2__location {
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      column-gap: 12px;
-    }
-    .section-2__menu {
-      display: flex;
-      column-gap: 36px;
-      margin-top: 48px;
-      margin-bottom: 48px;
-    }
-
-    .section-3__review-container {
-      padding-top: 24px;
-      margin-top: 24px;
-      border-top: 1px solid #eeeeee;
-    }
-    .section-3__review-title {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      column-gap: 12px;
-    }
-
-    @media (min-width: 1180px) {
-      .detail-page {
-        grid-template-columns: 1fr 1fr 338px;
-      }
-      .section-2__title {
-        margin-top: 0;
-        line-height: 1;
-        margin-bottom: 8px;
-      }
-    }
-  `;
+  protected createRenderRoot() {
+    return this;
+  }
 }

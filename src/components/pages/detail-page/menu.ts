@@ -13,6 +13,12 @@ export class Menu extends LitElement {
 
   _switchSection(section: ActiveSection) {
     this.activeSection = section;
+
+    const menuContent = this.shadowRoot?.querySelector(
+      ".section-2__menu-content"
+    ) as HTMLElement;
+    menuContent?.setAttribute("tabindex", "0");
+    menuContent?.focus();
   }
 
   render() {

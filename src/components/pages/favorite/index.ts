@@ -1,10 +1,10 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { LitElement, css, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import "@/components/shared/food-card";
 import { Food } from "@/types";
 import FavoriteIDB from "@/utils/favorite-idb";
 import { map } from "lit/directives/map.js";
-import { COLORS } from "@/constants";
+import { SKIP_CONTENT_TARGET } from "@/constants";
 
 @customElement("favorite-page")
 export class FavoritePage extends LitElement {
@@ -15,9 +15,16 @@ export class FavoritePage extends LitElement {
     this._getList();
   }
 
-  render() {
+  protected render() {
     return html`<div class="favorite-page">
-      <h1 class="favorite-page__title">Your Favorite</h1>
+      <h1
+        id="${SKIP_CONTENT_TARGET}"
+        tabindex="0"
+        data-scroll-offset="100"
+        class="favorite-page__title"
+      >
+        Your Favorite
+      </h1>
       <div class="favorite-page__content">
         ${map(
           this.foods,
@@ -34,6 +41,10 @@ export class FavoritePage extends LitElement {
     </div>`;
   }
 
+  protected createRenderRoot() {
+    return this;
+  }
+
   async _getList() {
     try {
       const foods = await FavoriteIDB.getAll();
@@ -42,29 +53,4 @@ export class FavoritePage extends LitElement {
       alert("Gagal mengambil data");
     }
   }
-
-  static styles = css`
-    * {
-      box-sizing: border-box;
-    }
-
-    .favorite-page {
-      margin-top: 118px;
-      padding: 0 20px;
-      min-height: 90vh;
-    }
-    .favorite-page__title {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 42px;
-      color: ${unsafeCSS(COLORS.primary)};
-      font-weight: 700;
-    }
-    .favorite-page__content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-  `;
 }

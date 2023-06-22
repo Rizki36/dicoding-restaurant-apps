@@ -7,11 +7,17 @@ const app = new App({
   navBtnOpenEl: document.querySelector(".btn-open"),
   navEl: document.querySelector(".nav"),
   content: document.querySelector("#content"),
+  skipContentEl: document.querySelector("#skip-content"),
 });
 
-window.addEventListener("hashchange", () => {
-  app.renderPage();
+window.addEventListener("hashchange", async () => {
+  await app.renderPage();
+  await app.afterRenderPage();
+
+  // reset scroll position
+  window.scrollTo(0, 0);
 });
-window.addEventListener("load", () => {
-  app.renderPage();
+window.addEventListener("load", async () => {
+  await app.renderPage();
+  await app.afterRenderPage();
 });

@@ -13,10 +13,10 @@ class NavigationInitiator {
   }
 
   private _init() {
-    this.addEventListeners();
+    this._addEventListeners();
   }
 
-  private addEventListeners() {
+  private _addEventListeners() {
     this._btnOpenEl.addEventListener("click", () => {
       this._onOpenNav();
     });

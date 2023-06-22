@@ -2,7 +2,7 @@ const routes = {
   "/": {
     renderPage: async () => {
       await import("@/components/pages/main");
-      return "<main-page></main-page>";
+      return `<main-page></main-page>`;
     },
   },
   "/favorite": {
