@@ -68,6 +68,14 @@ export class DetailPage extends LitElement {
   }
 
   protected render() {
+    if (this.loading) {
+      return html`<div
+        style="display: flex; min-height: 100vh; justify-content: center; align-items: center;"
+      >
+        <custom-loader></custom-loader>
+      </div>`;
+    }
+
     return html`<div class="detail-page">
       <div class="section-1">
         <img

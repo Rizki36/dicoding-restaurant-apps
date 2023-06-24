@@ -1,19 +1,22 @@
+// load components, so that the browser can cache them
+import("@/components/pages/main");
+import("@/components/pages/favorite");
+import("@/components/pages/detail-page");
+import("@/components/shared/custom-loader");
+
 const routes = {
   "/": {
     renderPage: async () => {
-      await import("@/components/pages/main");
       return `<main-page></main-page>`;
     },
   },
   "/favorite": {
     renderPage: async () => {
-      await import("@/components/pages/favorite");
       return "<favorite-page></favorite-page>";
     },
   },
   "/detail/:id": {
     renderPage: async () => {
-      await import("@/components/pages/detail-page");
       return "<detail-page></detail-page>";
     },
   },

@@ -61,6 +61,7 @@ export class FoodCard extends LitElement {
             src="https://restaurant-api.dicoding.dev/images/medium/${this
               .pictureId}"
             alt="Image of ${this?.name} restaurant"
+            loading="lazy"
           />
           <span class="foods__item-city">${this.city}</span>
         </div>

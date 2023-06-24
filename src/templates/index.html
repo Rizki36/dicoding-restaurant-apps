@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ae1414" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="manifest" href="./app.webmanifest" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
     <meta
       name="description"
       content="Lesu is a website that provides a list of restaurants around you.
-      You can find your favorite restaurant and order your favorite food in a few clicks."
+      You can find your favorite restaurant"
     />
 
     <title>Lesu</title>
@@ -21,6 +27,19 @@
 
   <body>
     <button type="button" id="skip-content">Skip Content</button>
+
+    <div
+      id="loading-portal"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        z-index: 100000;
+      "
+    ></div>
 
     <!-- Navigation -->
     <nav class="nav">

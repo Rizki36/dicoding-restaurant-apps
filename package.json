@@ -8,7 +8,9 @@
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
     "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "serve": "http-server dist",
+    "build-serve": "npm run build && npm run serve"
   },
   "keywords": [],
   "author": "your_name <your.email@domain.com>",
@@ -19,10 +21,12 @@
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.41.0",
     "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",
     "karma": "^5.2.3",
@@ -38,7 +42,10 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-precaching": "^7.0.0",
+    "workbox-webpack-plugin": "^7.0.0",
+    "workbox-window": "^7.0.0"
   },
   "dependencies": {
     "idb": "^7.1.1",
