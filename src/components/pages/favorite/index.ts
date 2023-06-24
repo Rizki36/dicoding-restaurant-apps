@@ -32,7 +32,13 @@ export class FavoritePage extends LitElement {
                 You don't have any favorite restaurant
               </h2>
               <p tabindex="0" class="favorite-page__empty__description">
-                Go to <a href="/">Home Page</a> to add some
+                Go to
+                <a
+                  href="/"
+                  style="display:flex; align-items: center; justify-content:center; height: 44px;"
+                  >Home Page</a
+                >
+                to add some
               </p>
             </div>`
           : null}

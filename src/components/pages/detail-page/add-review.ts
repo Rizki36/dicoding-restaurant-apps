@@ -92,7 +92,8 @@ export class AddReview extends LitElement {
       margin-block-start: 0;
       margin-block-end: 0;
       margin: 12px 0;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: bold;
     }
     textarea.form-input {
       width: 100%;
@@ -108,7 +109,7 @@ export class AddReview extends LitElement {
       margin-bottom: 8px;
       border: 1px solid #d1d1d1;
       border-radius: 4px;
-      padding: 8px;
+      padding: 14px;
     }
     .section-3__add-review button {
       display: block;
@@ -116,7 +117,7 @@ export class AddReview extends LitElement {
       background-color: ${unsafeCSS(COLORS.primary)};
       color: white;
       border: none;
-      padding: 8px 24px;
+      padding: 16px 24px;
       border-radius: 8px;
     }
   `;

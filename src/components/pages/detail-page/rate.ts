@@ -170,7 +170,7 @@ export class Rate extends LitElement {
       border: none;
       background-color: transparent;
       cursor: pointer;
-      padding: 8px 24px;
+      padding: 14px 24px;
     }
     .section-3__rate-action:first-child {
       border-right: 1px solid #eeeeee;

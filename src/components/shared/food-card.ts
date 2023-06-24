@@ -196,10 +196,10 @@ export class FoodCard extends LitElement {
       align-items: center;
       border: none;
       position: absolute;
-      top: 100px;
+      top: 86px;
       left: 26px;
       background-color: white;
-      padding: 8px;
+      padding: 14px 12px;
       cursor: pointer;
       border-radius: 8px;
       gap: 8px;

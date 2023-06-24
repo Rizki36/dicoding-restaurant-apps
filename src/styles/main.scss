@@ -276,10 +276,14 @@ a {
   }
 
   .favorite-page__empty__description {
-    margin-top: 20px;
+    margin-top: 12px;
     font-size: 16px;
     color: #3a3a3a;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
   }
 }
 
