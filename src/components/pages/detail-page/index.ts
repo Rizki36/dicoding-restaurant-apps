@@ -68,15 +68,15 @@ export class DetailPage extends LitElement {
   }
 
   protected render() {
-    if (this.loading) {
-      return html`<div
-        style="display: flex; min-height: 100vh; justify-content: center; align-items: center;"
-      >
-        <custom-loader></custom-loader>
-      </div>`;
-    }
-
     return html`<div class="detail-page">
+      ${this.loading
+        ? html`<div
+            style="background:#fff; z-index: 100; position:fixed; top:0; right:0; bottom:0; left:0; display: flex; min-height: 100vh; justify-content: center; align-items: center;"
+          >
+            <custom-loader></custom-loader>
+          </div>`
+        : null}
+
       <div class="section-1">
         <img
           src="https://restaurant-api.dicoding.dev/images/medium/${this.data
@@ -109,7 +109,7 @@ export class DetailPage extends LitElement {
               stroke-linejoin="round"
             />
           </svg>
-          Lokasi : ${this.data?.address}
+          Lokasi : ${this.data?.address}, ${this.data?.city}
         </div>
         <div><b>Deskripsi</b></div>
         <p class="section-2__description">${this.data?.description}</p>
