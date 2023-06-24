@@ -259,6 +259,28 @@ a {
     justify-content: center;
     gap: 50px;
   }
+
+  .favorite-page__empty {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 24px;
+    color: #3a3a3a;
+    font-weight: 700;
+  }
+
+  .favorite-page__empty__title {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #3a3a3a;
+    font-weight: 700;
+  }
+
+  .favorite-page__empty__description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #3a3a3a;
+    font-weight: 400;
+  }
 }
 
 @media (min-width: 768px) {

@@ -39,17 +39,20 @@ export class FoodsSection extends LitElement {
           Best Menu
         </h2>
         <div class="foods__list">
-          ${map(
-            this.foods,
-            (restaurant) => html`<food-card
-              id=${restaurant.id}
-              pictureId=${restaurant.pictureId}
-              city=${restaurant.city}
-              name=${restaurant.name}
-              description=${restaurant.description}
-              rating=${restaurant.rating}
-            ></food-card> `
-          )}
+          ${this.loading ? html`<custom-loader></custom-loader>` : null}
+          ${!this.loading
+            ? map(
+                this.foods,
+                (restaurant) => html`<food-card
+                  id=${restaurant.id}
+                  pictureId=${restaurant.pictureId}
+                  city=${restaurant.city}
+                  name=${restaurant.name}
+                  description=${restaurant.description}
+                  rating=${restaurant.rating}
+                ></food-card> `
+              )
+            : null}
         </div>
       </section>
     `;

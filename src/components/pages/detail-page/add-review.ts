@@ -63,10 +63,22 @@ export class AddReview extends LitElement {
 
   render() {
     return html`<div class="section-3__add-review">
-      <h5 class="section-3__add-review-title">Beri Komentar</h5>
+      <div class="section-3__add-review-title">Beri Komentar</div>
       <form @submit=${this._onSubmit}>
-        <input name="name" class="form-input" placeholder="Masukkan Nama mu" />
-        <textarea name="review" class="form-input" rows="10"></textarea>
+        <label for="name">Nama</label>
+        <input
+          id="name"
+          name="name"
+          class="form-input"
+          placeholder="Masukkan Nama mu"
+        />
+        <label for="review">Review</label>
+        <textarea
+          id="review"
+          name="review"
+          class="form-input"
+          rows="10"
+        ></textarea>
         <button type="submit">Kirim</button>
       </form>
     </div> `;
@@ -80,6 +92,7 @@ export class AddReview extends LitElement {
       margin-block-start: 0;
       margin-block-end: 0;
       margin: 12px 0;
+      font-size: 14px;
     }
     textarea.form-input {
       width: 100%;

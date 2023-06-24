@@ -26,17 +26,29 @@ export class FavoritePage extends LitElement {
         Your Favorite
       </h1>
       <div class="favorite-page__content">
-        ${map(
-          this.foods,
-          (restaurant) => html`<food-card
-            id=${restaurant.id}
-            pictureId=${restaurant.pictureId}
-            city=${restaurant.city}
-            name=${restaurant.name}
-            description=${restaurant.description}
-            rating=${restaurant.rating}
-          ></food-card> `
-        )}
+        ${!this.foods.length
+          ? html`<div class="favorite-page__empty">
+              <h2 tabindex="0" class="favorite-page__empty__title">
+                You don't have any favorite restaurant
+              </h2>
+              <p tabindex="0" class="favorite-page__empty__description">
+                Go to <a href="/">Home Page</a> to add some
+              </p>
+            </div>`
+          : null}
+        ${this.foods.length
+          ? map(
+              this.foods,
+              (restaurant) => html`<food-card
+                id=${restaurant.id}
+                pictureId=${restaurant.pictureId}
+                city=${restaurant.city}
+                name=${restaurant.name}
+                description=${restaurant.description}
+                rating=${restaurant.rating}
+              ></food-card> `
+            )
+          : null}
       </div>
     </div>`;
   }
