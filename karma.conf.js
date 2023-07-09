@@ -2,26 +2,25 @@
 // Generated on Fri Jul 03 2020 20:15:52 GMT+0700 (Western Indonesia Time)
 module.exports = function (config) {
   config.set({
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: ".",
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ["jasmine", "karma-typescript"],
 
     // list of files / patterns to load in the browser
-    files: [
-      'specs/**/*Spec.js',
-    ],
+    files: ["specs/**/*.spec.ts"],
 
     // list of files / patterns to exclude
-    exclude: [],
+    exclude: [
+      "src/index.ts", // untestable main "boot" file
+    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'specs/**/*Spec.js': ['webpack', 'sourcemap'],
+      "specs/**/*.spec.ts": ["webpack", "sourcemap", "karma-typescript"],
     },
 
     webpack: {
@@ -29,20 +28,46 @@ module.exports = function (config) {
       // (you don't need to specify the entry option)
       // webpack watches dependencies
       // webpack configuration
-      devtool: 'inline-source-map',
-      mode: 'development',
+      devtool: "inline-source-map",
+      mode: "development",
     },
 
     webpackMiddleware: {
       // webpack-dev-middleware configuration
       // i. e.
-      stats: 'errors-only',
+      stats: "errors-only",
+    },
+
+    karmaTypescriptConfig: {
+      tsconfig: "tsconfig.json",
+      bundlerOptions: {
+        // Because of the way Karma works, Jasmine's focus specs (fdescribe, fit)
+        //   will only focus tests for their own file.
+        // Use the "entrypoints" property to restrict the test files that are run.
+        // entrypoints: /date\.spec\.ts$/
+      },
+      // Modify the "coverageOptions" and "reports" as desired.
+      coverageOptions: {
+        threshold: {
+          global: {
+            statements: 95,
+            branches: 95,
+            functions: 95,
+            lines: 95,
+          },
+        },
+        exclude: [/^test[\/\\]/], // forward slash on *nix/Mac, backslash on Windows
+      },
+      reports: {
+        html: "coverage",
+        "text-summary": "",
+      },
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ["progress", "karma-typescript"],
 
     // web server port
     port: 9876,
@@ -60,7 +85,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ["Chrome"],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

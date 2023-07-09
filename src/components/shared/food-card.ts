@@ -1,7 +1,6 @@
 import { COLORS } from "@/constants";
 import CONFIG from "@/constants/config";
 import FavoriteIDB from "@/data/favorite-idb";
-import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 
