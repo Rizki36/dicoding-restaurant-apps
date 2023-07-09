@@ -3,14 +3,15 @@ import { map } from "lit/directives/map.js";
 import { customElement, state } from "lit/decorators.js";
 import "@/components/shared/food-card";
 import { COLORS } from "@/constants";
-import { Food } from "@/types";
+import { Restaurant } from "@/types";
+import RestaurantSource from "@/data/restaurant-source";
 
 @customElement("foods-section")
 export class FoodsSection extends LitElement {
   @state()
   loading = false;
   @state()
-  foods: Food[] = [];
+  foods: Restaurant[] = [];
 
   connectedCallback() {
     super.connectedCallback();
@@ -20,10 +21,7 @@ export class FoodsSection extends LitElement {
   async _fetchData() {
     try {
       this.loading = true;
-
-      const response = await fetch("https://restaurant-api.dicoding.dev/list");
-      const json = await response.json();
-      this.foods = json.restaurants;
+      this.foods = await RestaurantSource.getRestaurantList();
     } catch (error) {
       console.error(error);
     } finally {

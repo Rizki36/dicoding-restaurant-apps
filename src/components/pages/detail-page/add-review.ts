@@ -2,13 +2,8 @@ import { COLORS } from "@/constants";
 import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import { RestaurantData } from ".";
-
-type AddReviewData = {
-  id: string;
-  name: string;
-  review: string;
-};
+import RestaurantSource from "@/data/restaurant-source";
+import { RestaurantDetail } from "@/types";
 
 @customElement("add-review")
 export class AddReview extends LitElement {
@@ -26,14 +21,14 @@ export class AddReview extends LitElement {
     if (!review || !id || !name) return;
 
     try {
-      const response = await this._postAddReview({
+      const response = await RestaurantSource.postAddReview({
         id,
         name: name.value,
         review: review.value,
       });
 
       const data: {
-        customerReviews: RestaurantData["customerReviews"];
+        customerReviews: RestaurantDetail["customerReviews"];
       } = await response.json();
 
       review.value = "";
@@ -49,16 +44,6 @@ export class AddReview extends LitElement {
     } finally {
       this.loading = false;
     }
-  }
-
-  _postAddReview(data: AddReviewData) {
-    return fetch("https://restaurant-api.dicoding.dev/review", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
   }
 
   render() {

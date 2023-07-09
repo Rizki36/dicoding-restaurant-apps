@@ -1,14 +1,14 @@
 import { LitElement, css, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import "@/components/shared/food-card";
-import { Food } from "@/types";
-import FavoriteIDB from "@/utils/favorite-idb";
+import { Restaurant } from "@/types";
+import FavoriteIDB from "@/data/favorite-idb";
 import { map } from "lit/directives/map.js";
 import { SKIP_CONTENT_TARGET } from "@/constants";
 
 @customElement("favorite-page")
 export class FavoritePage extends LitElement {
-  @state() foods: Food[] = [];
+  @state() foods: Restaurant[] = [];
 
   connectedCallback() {
     super.connectedCallback();

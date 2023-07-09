@@ -6,37 +6,14 @@ import "@/components/pages/detail-page/menu";
 import "@/components/pages/detail-page/add-review";
 import "@/components/pages/detail-page/rate";
 import { SKIP_CONTENT_TARGET } from "@/constants";
-
-export type RestaurantData = {
-  id: string;
-  name: string;
-  description: string;
-  city: string;
-  address: string;
-  pictureId: string;
-  categories: {
-    name: string;
-  }[];
-  menus: {
-    foods: {
-      name: string;
-    }[];
-    drinks: {
-      name: string;
-    }[];
-  };
-  rating: number;
-  customerReviews: {
-    name: string;
-    review: string;
-    date: string;
-  }[];
-};
+import { RestaurantDetail } from "@/types";
+import RestaurantSource from "@/data/restaurant-source";
+import CONFIG from "@/constants/config";
 
 @customElement("detail-page")
 export class DetailPage extends LitElement {
   @property() loading = false;
-  @property() data: RestaurantData | null = null;
+  @property() data: RestaurantDetail | undefined = undefined;
 
   connectedCallback() {
     super.connectedCallback();
@@ -46,13 +23,8 @@ export class DetailPage extends LitElement {
   async _fetchData() {
     try {
       this.loading = true;
-
       const arrayUrl = UrlParser.parseActiveUrlWithoutCombiner();
-      const response = await fetch(
-        `https://restaurant-api.dicoding.dev/detail/${arrayUrl.id}`
-      );
-      const json = await response.json();
-      this.data = json.restaurant;
+      this.data = await RestaurantSource.getRestaurantDetail(arrayUrl.id);
     } catch (error) {
       console.error(error);
     } finally {
@@ -79,8 +51,7 @@ export class DetailPage extends LitElement {
 
       <div class="section-1">
         <img
-          src="https://restaurant-api.dicoding.dev/images/medium/${this.data
-            ?.pictureId}"
+          src="${CONFIG.BASE_IMAGE_URL}/medium/${this.data?.pictureId}"
           alt="Image of ${this.data?.name}"
         />
       </div>

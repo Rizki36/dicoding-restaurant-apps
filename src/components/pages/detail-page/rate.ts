@@ -1,13 +1,13 @@
 import { COLORS } from "@/constants";
-import { Food } from "@/types";
-import FavoriteIDB from "@/utils/favorite-idb";
+import { Restaurant } from "@/types";
+import FavoriteIDB from "@/data/favorite-idb";
 import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 
 @customElement("rate-section")
 export class Rate extends LitElement {
-  @property() data: Food;
+  @property() data: Restaurant;
 
   @state() isFavorite = false;
 

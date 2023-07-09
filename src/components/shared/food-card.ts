@@ -1,5 +1,6 @@
 import { COLORS } from "@/constants";
-import FavoriteIDB from "@/utils/favorite-idb";
+import CONFIG from "@/constants/config";
+import FavoriteIDB from "@/data/favorite-idb";
 import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
@@ -58,8 +59,7 @@ export class FoodCard extends LitElement {
       <div tabindex="0" class="foods__item">
         <div class="foods__item-image">
           <img
-            src="https://restaurant-api.dicoding.dev/images/medium/${this
-              .pictureId}"
+            src="${CONFIG.BASE_IMAGE_URL}/medium/${this.pictureId}"
             alt="Image of ${this?.name} restaurant"
             loading="lazy"
           />
