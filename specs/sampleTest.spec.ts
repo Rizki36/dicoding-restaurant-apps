@@ -1,9 +1,11 @@
-const sum = (a, b) => a + b;
+describe("", () => {
+  it("", async () => {
+    await import("@/components/shared/food-card");
 
-describe("Test", () => {
-  it("should return a + b value", () => {
-    expect(sum(2, 3)).toEqual(5);
+    document.body.innerHTML = `
+      <food-card></food-card>
+    `;
 
-    import("@/components/shared/food-card");
+    expect(document.querySelector("food-card")).not.toBeNull();
   });
 });
