@@ -14,13 +14,19 @@ const RestaurantSource = {
     return json.restaurant as RestaurantDetail;
   },
   postAddReview: async (payload: AddReviewData) => {
-    return fetch("https://restaurant-api.dicoding.dev/review", {
+    const response = await fetch("https://restaurant-api.dicoding.dev/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
     });
+
+    const json = await response.json();
+
+    return json as {
+      customerReviews: RestaurantDetail["customerReviews"];
+    };
   },
 };
 

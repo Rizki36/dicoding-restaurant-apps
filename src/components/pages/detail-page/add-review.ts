@@ -3,7 +3,6 @@ import UrlParser from "@/utils/url-parser";
 import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import RestaurantSource from "@/data/restaurant-source";
-import { RestaurantDetail } from "@/types";
 
 @customElement("add-review")
 export class AddReview extends LitElement {
@@ -27,15 +26,11 @@ export class AddReview extends LitElement {
         review: review.value,
       });
 
-      const data: {
-        customerReviews: RestaurantDetail["customerReviews"];
-      } = await response.json();
-
       review.value = "";
       name.value = "";
 
       const callbackEvent = new CustomEvent("on-success-add-review", {
-        detail: data.customerReviews,
+        detail: response.customerReviews,
       });
       this.dispatchEvent(callbackEvent);
     } catch (error) {
