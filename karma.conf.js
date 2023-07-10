@@ -1,48 +1,45 @@
 // Karma configuration
 // Generated on Fri Jul 03 2020 20:15:52 GMT+0700 (Western Indonesia Time)
+const path = require("path");
+const webpackConfig = require("./webpack.common.js");
+
+webpackConfig.output.path = path.join(webpackConfig.output.path, "test");
+
 module.exports = function (config) {
   config.set({
-
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: ".",
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ["jasmine", "karma-typescript"],
 
     // list of files / patterns to load in the browser
-    files: [
-      'specs/**/*Spec.js',
-    ],
+    files: ["specs/**/*.spec.ts"],
 
     // list of files / patterns to exclude
-    exclude: [],
+    exclude: [
+      "src/index.ts", // untestable main "boot" file
+    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'specs/**/*Spec.js': ['webpack', 'sourcemap'],
+      "specs/**/*.spec.ts": ["webpack", "sourcemap"],
     },
 
-    webpack: {
-      // karma watches the test entry points
-      // (you don't need to specify the entry option)
-      // webpack watches dependencies
-      // webpack configuration
-      devtool: 'inline-source-map',
-      mode: 'development',
-    },
+    webpack: webpackConfig,
 
     webpackMiddleware: {
       // webpack-dev-middleware configuration
       // i. e.
-      stats: 'errors-only',
+      stats: "errors-only",
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ["progress"],
 
     // web server port
     port: 9876,
@@ -60,7 +57,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ["Chrome"],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits

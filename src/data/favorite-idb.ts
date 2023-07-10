@@ -21,7 +21,7 @@ const FavoriteIDB = {
   async update(movie) {
     return (await dbPromise).put(CONFIG.OBJECT_STORE_NAME, movie);
   },
-  async delete(id) {
+  async delete(id: string) {
     return (await dbPromise).delete(CONFIG.OBJECT_STORE_NAME, id);
   },
 };
