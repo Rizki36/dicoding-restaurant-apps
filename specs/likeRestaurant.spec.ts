@@ -19,9 +19,9 @@ describe("Like Restaurant", () => {
 
     clickLikeButton(element);
 
-    const movie = await FavoriteIDB.getOne("1");
+    const restaurant = await FavoriteIDB.getOne("1");
 
-    expect(movie.id).toEqual("1");
+    expect(restaurant.id).toEqual("1");
 
     FavoriteIDB.delete("1");
   });
@@ -47,7 +47,7 @@ describe("Like Restaurant", () => {
     FavoriteIDB.delete("1");
   });
 
-  it("should not add a movie when it has no id", async () => {
+  it("should not add a restaurant when it has no id", async () => {
     // @ts-ignore
     const element = await TestFactories.createFoodCard({});
 
