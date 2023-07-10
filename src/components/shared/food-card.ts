@@ -21,6 +21,8 @@ export class FoodCard extends LitElement {
   }
 
   async _handleClickFavorite() {
+    if (!this.id || this?.id === "undefined") return;
+
     try {
       if (this.isFavorite) {
         await FavoriteIDB.delete(this.id);
@@ -58,11 +60,14 @@ export class FoodCard extends LitElement {
       <div tabindex="0" class="foods__item">
         <div class="foods__item-image">
           <img
+            data-testid="food-image"
             src="${CONFIG.BASE_IMAGE_URL}/medium/${this.pictureId}"
             alt="Image of ${this?.name} restaurant"
             loading="lazy"
           />
-          <span class="foods__item-city">${this.city}</span>
+          <span data-testid="food-city" class="foods__item-city"
+            >${this.city}</span
+          >
         </div>
 
         <button
@@ -91,15 +96,21 @@ export class FoodCard extends LitElement {
         </button>
 
         <div class="foods__item-content">
-          <h3 class="foods__item-name">${this.name}</h3>
+          <h3 data-testid="food-title" class="foods__item-name">
+            ${this.name}
+          </h3>
           <div class="foods__item-rating">
             <img src="/images/star-icon.svg" alt="Rating" />
-            <span>${this.rating}</span>
+            <span data-testid="food-rating">${this.rating}</span>
           </div>
-          <p class="foods__item-description">${this.description}</p>
+          <p data-testid="food-description" class="foods__item-description">
+            ${this.description}
+          </p>
 
           <div class="foods__item-buy">
-            <a href="#/detail/${this.id}">Detail</a>
+            <a data-testid="food-detail-link" href="#/detail/${this.id}"
+              >Detail</a
+            >
           </div>
         </div>
       </div>
