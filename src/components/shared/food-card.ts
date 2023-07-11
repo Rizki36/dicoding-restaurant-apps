@@ -38,6 +38,8 @@ export class FoodCard extends LitElement {
       }
 
       this.isFavorite = !this.isFavorite;
+      const callbackEvent = new CustomEvent("on-success-change-favorite", {});
+      this.dispatchEvent(callbackEvent);
     } catch (error) {
       alert("Gagal menambahkan ke favorite");
     }

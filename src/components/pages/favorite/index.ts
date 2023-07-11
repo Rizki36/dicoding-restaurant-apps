@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import "@/components/shared/food-card";
 import { Restaurant } from "@/types";
@@ -9,6 +9,7 @@ import { SKIP_CONTENT_TARGET } from "@/constants";
 @customElement("favorite-page")
 export class FavoritePage extends LitElement {
   @state() foods: Restaurant[] = [];
+  @state() search = "";
 
   connectedCallback() {
     super.connectedCallback();
@@ -17,44 +18,28 @@ export class FavoritePage extends LitElement {
 
   protected render() {
     return html`<div class="favorite-page">
-      <h1
+      <h1 data-scroll-offset="100" class="favorite-page__title">Favorit Mu</h1>
+      <div class="favorite-page__search-container">
+        <label for="query">Cari</label>
+        <input
+          id="query"
+          name="name"
+          class="form-input"
+          placeholder="Masukkan Nama Restaurant"
+          @input=${(e: Event) => {
+            const target = e.target as HTMLInputElement;
+            const query = target.value;
+            this.search = query;
+          }}
+        />
+      </div>
+      <div
         id="${SKIP_CONTENT_TARGET}"
+        data-scroll-offset="-200"
         tabindex="0"
-        data-scroll-offset="100"
-        class="favorite-page__title"
+        class="favorite-page__content"
       >
-        Your Favorite
-      </h1>
-      <div class="favorite-page__content">
-        ${!this.foods.length
-          ? html`<div class="favorite-page__empty">
-              <h2 tabindex="0" class="favorite-page__empty__title">
-                You don't have any favorite restaurant
-              </h2>
-              <p tabindex="0" class="favorite-page__empty__description">
-                Go to
-                <a
-                  href="/"
-                  style="display:flex; align-items: center; justify-content:center; height: 44px;"
-                  >Home Page</a
-                >
-                to add some
-              </p>
-            </div>`
-          : null}
-        ${this.foods.length
-          ? map(
-              this.foods,
-              (restaurant) => html`<food-card
-                id=${restaurant.id}
-                pictureId=${restaurant.pictureId}
-                city=${restaurant.city}
-                name=${restaurant.name}
-                description=${restaurant.description}
-                rating=${restaurant.rating}
-              ></food-card> `
-            )
-          : null}
+        ${this._renderList()}
       </div>
     </div>`;
   }
@@ -70,5 +55,50 @@ export class FavoritePage extends LitElement {
     } catch (error) {
       alert("Gagal mengambil data");
     }
+  }
+
+  get _filteredFoods() {
+    return this.foods.filter((food) =>
+      food.name.toLowerCase().includes(this.search.toLowerCase())
+    );
+  }
+
+  _renderList() {
+    if (!this.foods.length)
+      return html`<div class="favorite-page__empty">
+        <h2 class="favorite-page__empty__title">
+          Kamu belum menambahkan restaurant ke favorite
+        </h2>
+        <p class="favorite-page__empty__description">
+          Kembali ke
+          <a
+            href="/"
+            style="display:flex; align-items: center; justify-content:center; height: 44px;"
+            >Home Page</a
+          >
+          untuk menambahkan restaurant ke favorite
+        </p>
+      </div>`;
+
+    if (!this._filteredFoods.length)
+      return html`<div class="favorite-page__empty">
+        <h2 class="favorite-page__empty__title">Restaurant tidak ditemukan</h2>
+        <p class="favorite-page__empty__description">
+          Coba cari dengan kata kunci lain
+        </p>
+      </div>`;
+
+    return map(
+      this._filteredFoods,
+      (restaurant) => html`<food-card
+        id=${restaurant.id}
+        pictureId=${restaurant.pictureId}
+        city=${restaurant.city}
+        name=${restaurant.name}
+        description=${restaurant.description}
+        rating=${restaurant.rating}
+        @on-success-change-favorite=${() => this._getList()}
+      ></food-card> `
+    );
   }
 }
