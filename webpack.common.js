@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -35,12 +37,18 @@ module.exports = {
         },
       },
     },
+    minimizer: [new CssMinimizerPlugin()],
   },
   module: {
     rules: [
       {
         test: /\.(s(a|c)ss)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.ts?$/,
@@ -69,5 +77,6 @@ module.exports = {
       ],
     }),
     new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };
