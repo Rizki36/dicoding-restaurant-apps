@@ -9,7 +9,13 @@ export class FeaturesSection extends LitElement {
         <div class="features__container">
           <div class="features__item">
             <div class="features__item-icon">
-              <img src="./images/features/fast.svg" alt="Fast Delivery" />
+              <img
+                width="56px"
+                height="56px"
+                style="object-fit: cover;"
+                src="./images/features/fast.svg"
+                alt="Fast Delivery"
+              />
             </div>
             <div class="features__item-content">
               <h2 class="features__item-title">Fast Delivery</h2>
@@ -20,7 +26,13 @@ export class FeaturesSection extends LitElement {
           </div>
           <div class="features__item">
             <div class="features__item-icon">
-              <img src="./images/features/centralized.svg" alt="Centralized" />
+              <img
+                width="73px"
+                height="73px"
+                style="object-fit: cover;"
+                src="./images/features/centralized.svg"
+                alt="Centralized"
+              />
             </div>
             <div class="features__item-content">
               <h2 class="features__item-title">Centralized</h2>
@@ -31,7 +43,13 @@ export class FeaturesSection extends LitElement {
           </div>
           <div class="features__item">
             <div class="features__item-icon">
-              <img src="./images/features/trusted.svg" alt="Trusted" />
+              <img
+                width="58px"
+                height="58px"
+                style="object-fit: cover;"
+                src="./images/features/trusted.svg"
+                alt="Trusted"
+              />
             </div>
             <div class="features__item-content">
               <h2 class="features__item-title">Trusted</h2>

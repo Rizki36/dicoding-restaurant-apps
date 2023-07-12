@@ -28,7 +28,13 @@ export class HeroSection extends LitElement {
 
         <!-- right hero -->
         <div class="hero__right">
-          <img src="/images/hero.png" alt="Hero image" />
+          <img
+            width="343px"
+            height="458px"
+            style="object-fit: cover;"
+            src="/images/hero.png"
+            alt="Hero image"
+          />
         </div>
       </div>
     </section>`;

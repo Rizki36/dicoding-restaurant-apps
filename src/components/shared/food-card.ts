@@ -62,8 +62,11 @@ export class FoodCard extends LitElement {
       <div tabindex="0" class="foods__item">
         <div class="foods__item-image">
           <img
+            width="282px"
+            height="145px"
+            style="object-fit: cover; object-position: center;"
             data-testid="food-image"
-            src="${CONFIG.BASE_IMAGE_URL}/medium/${this.pictureId}"
+            src="${CONFIG.BASE_IMAGE_URL}/small/${this.pictureId}"
             alt="Image of ${this?.name} restaurant"
             loading="lazy"
           />
@@ -102,7 +105,13 @@ export class FoodCard extends LitElement {
             ${this.name}
           </h3>
           <div class="foods__item-rating">
-            <img src="/images/star-icon.svg" alt="Rating" />
+            <img
+              width="21px"
+              height="21px"
+              style="object-fit: contain;"
+              src="/images/star-icon.svg"
+              alt="Rating"
+            />
             <span data-testid="food-rating">${this.rating}</span>
           </div>
           <p data-testid="food-description" class="foods__item-description">
