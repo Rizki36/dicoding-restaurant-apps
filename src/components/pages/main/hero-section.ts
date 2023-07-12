@@ -5,11 +5,17 @@ import { customElement } from "lit/decorators.js";
 export class HeroSection extends LitElement {
   render() {
     return html`<section class="hero">
-      <img
-        class="hero__background"
-        src="/images/heros/hero-image_2.jpg"
-        alt="Hero background"
-      />
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="/images/heros/hero-img.jpg"
+        />
+        <img
+          class="hero__background"
+          src="/images/heros/hero-img_lg.jpg"
+          alt="Hero background"
+        />
+      </picture>
       <div class="hero__wrapper">
         <!-- left hero -->
         <div class="hero__left">

@@ -50,10 +50,17 @@ export class DetailPage extends LitElement {
         : null}
 
       <div class="section-1">
-        <img
-          src="${CONFIG.BASE_IMAGE_URL}/medium/${this.data?.pictureId}"
-          alt="Image of ${this.data?.name}"
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcset="${CONFIG.BASE_IMAGE_URL}/small/${this.data?.pictureId}"
+          />
+          <img
+            src="${CONFIG.BASE_IMAGE_URL}/medium/${this.data?.pictureId}"
+            alt="Image of ${this.data?.name}"
+            loading="lazy"
+          />
+        </picture>
       </div>
       <div class="section-2">
         <h1
