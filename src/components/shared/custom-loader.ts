@@ -26,4 +26,8 @@ export class CustomLoader extends LitElement {
       }
     }
   `;
+
+  protected createRenderRoot() {
+    return this;
+  }
 }

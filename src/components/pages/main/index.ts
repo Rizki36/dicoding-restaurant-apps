@@ -9,7 +9,7 @@ import { SKIP_CONTENT_TARGET } from "@/constants";
 @customElement("main-page")
 export class MainPage extends LitElement {
   protected render() {
-    return html`<div>
+    return html`<div class="home-page">
       <hero-section></hero-section>
       <features-section
         id="${SKIP_CONTENT_TARGET}"

@@ -55,34 +55,7 @@ export class Menu extends LitElement {
     `;
   }
 
-  static styles = css`
-    * {
-      box-sizing: border-box;
-    }
-    .section-2__menu {
-      margin-top: 24px;
-      margin-bottom: 48px;
-    }
-    .section-2__menu-item {
-      background-color: transparent;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 16px 0;
-      padding-bottom: 8px;
-      margin-right: 24px;
-      cursor: pointer;
-      border-bottom: 5px solid transparent;
-      margin-bottom: 24px;
-    }
-    .section-2__menu-item.active {
-      border-bottom: 5px solid ${unsafeCSS(COLORS.primary)};
-    }
-
-    .section-2__menu-content ul {
-      padding-inline-start: 16px;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
-  `;
+  protected createRenderRoot() {
+    return this;
+  }
 }

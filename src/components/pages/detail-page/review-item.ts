@@ -20,27 +20,7 @@ export class ReviewItem extends LitElement {
     `;
   }
 
-  static styles = css`
-    .section-3__review-item {
-      display: flex;
-      column-gap: 12px;
-      border-bottom: 1px solid #eeeeee;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-    }
-    .section-3__reviewer-image {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background-color: #eeeeee;
-    }
-    .section-3__reviewer-name {
-      font-weight: bold;
-    }
-    .section-3__reviewed-at {
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
-  `;
+  protected createRenderRoot() {
+    return this;
+  }
 }

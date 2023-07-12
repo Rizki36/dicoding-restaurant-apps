@@ -128,53 +128,7 @@ export class Rate extends LitElement {
     `;
   }
 
-  static styles? = css`
-    * {
-      box-sizing: border-box;
-      color: #3a3a3a;
-      margin-block-start: 0;
-      margin-block-end: 0;
-    }
-
-    .section-3__rate-container {
-      padding: 18px;
-      border: 1px solid #eeeeee;
-      border-radius: 8px;
-    }
-    .section-3__rate-title {
-      text-align: center;
-      margin-bottom: 12px;
-      font-size: 32px;
-    }
-    .section-3__rate-number {
-      font-size: 48px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .section-3__rate-total-number {
-      font-size: 24px;
-    }
-    .section-3__rate-summary {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .section-3__rate-actions {
-      display: flex;
-      justify-content: center;
-    }
-    .section-3__rate-action {
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      column-gap: 12px;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      padding: 14px 24px;
-    }
-    .section-3__rate-action:first-child {
-      border-right: 1px solid #eeeeee;
-      padding-right: 24px;
-    }
-  `;
+  protected createRenderRoot() {
+    return this;
+  }
 }
