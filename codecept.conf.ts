@@ -21,6 +21,14 @@ const config: CodeceptJS.MainConfig = {
     I: "./steps_file",
   },
   name: "restaurant-apps",
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+    },
+    screenshotOnFail: {
+      enabled: true,
+    },
+  },
 };
 
 exports.config = config;
