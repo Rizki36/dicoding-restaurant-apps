@@ -40,15 +40,11 @@ export class DetailPage extends LitElement {
   }
 
   protected render() {
-    return html`<div class="detail-page">
-      ${this.loading
-        ? html`<div
-            style="background:#fff; z-index: 100; position:fixed; top:0; right:0; bottom:0; left:0; display: flex; min-height: 100vh; justify-content: center; align-items: center;"
-          >
-            <custom-loader></custom-loader>
-          </div>`
-        : null}
+    if (this.loading) {
+      return html`<custom-loader></custom-loader>`;
+    }
 
+    return html`<div class="detail-page">
       <div class="section-1">
         <picture>
           <source
@@ -63,14 +59,16 @@ export class DetailPage extends LitElement {
         </picture>
       </div>
       <div class="section-2">
-        <h1
-          id="${SKIP_CONTENT_TARGET}"
-          data-scroll-offset="1000"
-          tabindex="0"
-          class="section-2__title"
-        >
-          ${this.data?.name}
-        </h1>
+        ${this.loading
+          ? html`<div class="shine" style="height:32px; width: 100%;"></div>`
+          : html`<h1
+              id="${SKIP_CONTENT_TARGET}"
+              data-scroll-offset="1000"
+              tabindex="0"
+              class="section-2__title"
+            >
+              ${this.data?.name}
+            </h1>`}
         <div class="section-2__location">
           <svg
             width="16"
@@ -90,7 +88,19 @@ export class DetailPage extends LitElement {
           Lokasi : ${this.data?.address}, ${this.data?.city}
         </div>
         <div><b>Deskripsi</b></div>
-        <p class="section-2__description">${this.data?.description}</p>
+        ${this.loading
+          ? html`
+              <div style="display: flex; flex-direction: column; gap: 16px">
+                <div class="shine" style="height:16px; width: 100%;"></div>
+                <div class="shine" style="height:16px; width: 100%;"></div>
+                <div class="shine" style="height:16px; width: 100%;"></div>
+                <div class="shine" style="height:16px; width: 100%;"></div>
+                <div class="shine" style="height:16px; width: 100%;"></div>
+              </div>
+            `
+          : html`<p class="section-2__description">
+              ${this.data?.description}
+            </p>`}
         <menu-section
           .makanan=${this.data?.menus?.foods ?? []}
           .minuman=${this.data?.menus?.drinks ?? []}
@@ -131,21 +141,31 @@ export class DetailPage extends LitElement {
             </svg>
             Ulasan Pembeli
           </div>
-          <div class="section-3__review-items">
-            ${(this.data?.customerReviews ?? []).map(
-              (item) => html`<review-item
-                name="${item.name}"
-                date="${item.date}"
-                review="${item.review}"
-              ></review-item>`
-            )}
-          </div>
+          <div class="section-3__review-items">${this._renderReviewItem()}</div>
           <add-review
             @on-success-add-review=${this._addReviewCallback}
           ></add-review>
         </div>
       </div>
     </div>`;
+  }
+
+  _renderReviewItem() {
+    if (this.loading)
+      return html`<div style="display: flex; flex-direction: column; gap: 12px">
+        <div class="shine" style="height:80px; width: 100%;"></div>
+        <div class="shine" style="height:80px; width: 100%;"></div>
+        <div class="shine" style="height:80px; width: 100%;"></div>
+        <div class="shine" style="height:80px; width: 100%;"></div>
+      </div>`;
+
+    return (this.data?.customerReviews ?? []).map(
+      (item) => html`<review-item
+        name="${item.name}"
+        date="${item.date}"
+        review="${item.review}"
+      ></review-item>`
+    );
   }
 
   protected createRenderRoot() {

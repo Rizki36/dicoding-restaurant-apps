@@ -57,15 +57,6 @@ a {
   }
 }
 
-#skip-content {
-  position: fixed;
-  top: -50px;
-  left: 20px;
-  z-index: 999;
-  background-color: #fff;
-  padding: 10px;
-}
-
 #skip-content:focus {
   display: flex;
   outline: 1px solid $secondary;
@@ -77,6 +68,27 @@ input.form-input {
   border: 1px solid #d1d1d1;
   border-radius: 4px;
   padding: 14px;
+}
+
+.shine {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
 }
 
 .nav {
@@ -572,7 +584,7 @@ input.form-input {
   position: relative;
   max-width: 282px;
   background-color: #fde9dd;
-  border-radius: 16px;
+  border-radius: 12px;
 
   .foods__item-image {
     // height: 145px;

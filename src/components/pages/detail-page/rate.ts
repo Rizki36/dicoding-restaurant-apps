@@ -65,7 +65,7 @@ export class Rate extends LitElement {
             />
           </svg>
 
-          ${this.data?.rating}<span class="section-3__rate-total-number"
+          ${this.data?.rating || 0}<span class="section-3__rate-total-number"
             >/5</span
           >
         </div>
