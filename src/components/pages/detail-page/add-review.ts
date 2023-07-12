@@ -64,41 +64,7 @@ export class AddReview extends LitElement {
     </div> `;
   }
 
-  static styles = css`
-    * {
-      box-sizing: border-box;
-    }
-    .section-3__add-review-title {
-      margin-block-start: 0;
-      margin-block-end: 0;
-      margin: 12px 0;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    textarea.form-input {
-      width: 100%;
-      display: block;
-      resize: vertical;
-      margin-bottom: 8px;
-      border: 1px solid #d1d1d1;
-      border-radius: 8px;
-      padding: 8px;
-    }
-    input.form-input {
-      width: 100%;
-      margin-bottom: 8px;
-      border: 1px solid #d1d1d1;
-      border-radius: 4px;
-      padding: 14px;
-    }
-    .section-3__add-review button {
-      display: block;
-      margin-left: auto;
-      background-color: ${unsafeCSS(COLORS.primary)};
-      color: white;
-      border: none;
-      padding: 16px 24px;
-      border-radius: 8px;
-    }
-  `;
+  protected createRenderRoot() {
+    return this;
+  }
 }

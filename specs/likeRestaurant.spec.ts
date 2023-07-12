@@ -48,7 +48,6 @@ describe("Like Restaurant", () => {
   });
 
   it("should not add a restaurant when it has no id", async () => {
-    // @ts-ignore
     const element = await TestFactories.createFoodCard({});
 
     clickLikeButton(element);
