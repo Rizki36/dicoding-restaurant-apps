@@ -15,7 +15,7 @@ const TestFactories = {
     // wait for component to be rendered
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    return document.querySelector("food-card").shadowRoot;
+    return document.querySelector("food-card");
   },
 };
 

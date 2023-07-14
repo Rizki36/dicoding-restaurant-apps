@@ -17,7 +17,7 @@ describe("Food Card", () => {
     expect(element).toBeTruthy();
   });
 
-  fit("should render food card with correct data", async () => {
+  it("should render food card with correct data", async () => {
     const element = await TestFactories.createFoodCard(restaurant);
     expect(
       element.querySelector('[data-testid="food-title"]')?.textContent?.trim?.()
