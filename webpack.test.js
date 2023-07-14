@@ -1,6 +1,6 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 
-common.optimization.splitChunks = undefined;
+delete common.optimization.splitChunks;
 
-module.exports = merge(common);
+module.exports = merge(common, {});
