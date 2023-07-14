@@ -57,6 +57,15 @@ a {
   }
 }
 
+#skip-content {
+  position: fixed;
+  top: -50px;
+  left: 20px;
+  z-index: 999;
+  background-color: #fff;
+  padding: 10px;
+}
+
 #skip-content:focus {
   display: flex;
   outline: 1px solid $secondary;
