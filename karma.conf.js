@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Fri Jul 03 2020 20:15:52 GMT+0700 (Western Indonesia Time)
 const path = require("path");
-const webpackConfig = require("./webpack.karma.js");
+const webpackConfig = require("./webpack.test.js");
 
 webpackConfig.output.path = path.join(webpackConfig.output.path, "test");
 
