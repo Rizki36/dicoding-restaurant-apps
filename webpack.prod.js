@@ -25,10 +25,12 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
     new WorkboxWebpackPlugin.InjectManifest({
       swSrc: path.resolve(__dirname, "src/scripts/sw.ts"),
       swDest: "./sw.bundle.js",
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: "static",
     }),
   ],
 });
