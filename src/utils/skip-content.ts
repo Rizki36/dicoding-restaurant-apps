@@ -1,16 +1,9 @@
-type SkipContentProps = {
-  skipContentEl: HTMLElement;
-  mainContentEl: HTMLElement | undefined;
-};
+import { SKIP_CONTENT_TARGET } from "@/constants";
 
 class SkipContent {
-  private _skipContentEl: HTMLElement;
   private _mainContentEl: HTMLElement | undefined;
 
-  constructor({ skipContentEl, mainContentEl }: SkipContentProps) {
-    this._skipContentEl = skipContentEl;
-    this._mainContentEl = mainContentEl;
-
+  constructor() {
     this._init();
   }
 
@@ -19,14 +12,17 @@ class SkipContent {
   }
 
   private _addEventListeners() {
-    if (!this._skipContentEl) return;
-
-    this._skipContentEl.addEventListener("click", () => {
-      this._onSkipContent();
+    document.addEventListener("click", (e) => {
+      // @ts-ignore
+      const target = e.target?.closest?.("#skip-content");
+      if (target) {
+        this._onSkipContent();
+      }
     });
   }
 
   private _onSkipContent() {
+    this._mainContentEl = document.getElementById(SKIP_CONTENT_TARGET);
     if (!this._mainContentEl) return;
 
     this._mainContentEl.setAttribute("tabindex", "-1");

@@ -59,16 +59,14 @@ export class DetailPage extends LitElement {
         </picture>
       </div>
       <div class="section-2">
-        ${this.loading
-          ? html`<div class="shine" style="height:32px; width: 100%;"></div>`
-          : html`<h1
-              id="${SKIP_CONTENT_TARGET}"
-              data-scroll-offset="1000"
-              tabindex="0"
-              class="section-2__title"
-            >
-              ${this.data?.name}
-            </h1>`}
+        <h1
+          id="${SKIP_CONTENT_TARGET}"
+          data-scroll-offset="1000"
+          tabindex="0"
+          class="section-2__title"
+        >
+          ${this.data?.name}
+        </h1>
         <div class="section-2__location">
           <svg
             width="16"

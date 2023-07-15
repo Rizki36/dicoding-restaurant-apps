@@ -8,7 +8,6 @@ const app = new App({
   navBtnOpenEl: document.querySelector(".btn-open"),
   navEl: document.querySelector(".nav"),
   content: document.querySelector("#content"),
-  skipContentEl: document.querySelector("#skip-content"),
 });
 
 window.addEventListener("hashchange", async () => {

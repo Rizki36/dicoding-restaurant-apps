@@ -2,13 +2,11 @@ import NavigationInitiator from "@/utils/navigation-initiator";
 import UrlParser from "../utils/url-parser";
 import routes from "./routes";
 import SkipContent from "@/utils/skip-content";
-import { SKIP_CONTENT_TARGET } from "@/constants";
 
 type AppProps = {
   navBtnOpenEl: HTMLElement;
   navBtnCloseEl: HTMLElement;
   navEl: HTMLElement;
-  skipContentEl: HTMLElement;
   content: HTMLElement;
 };
 
@@ -17,19 +15,11 @@ class App {
   private _navBtnCloseEl: HTMLElement;
   private _navEl: HTMLElement;
   private _content: HTMLElement;
-  private _skipContentEl: HTMLElement;
 
-  constructor({
-    navBtnOpenEl,
-    navBtnCloseEl,
-    navEl,
-    content,
-    skipContentEl,
-  }: AppProps) {
+  constructor({ navBtnOpenEl, navBtnCloseEl, navEl, content }: AppProps) {
     this._navBtnOpenEl = navBtnOpenEl;
     this._navBtnCloseEl = navBtnCloseEl;
     this._navEl = navEl;
-    this._skipContentEl = skipContentEl;
     this._content = content;
 
     this._initAppShell();
@@ -50,14 +40,7 @@ class App {
   }
 
   async afterRenderPage() {
-    const mainContentEl = document.getElementById(
-      SKIP_CONTENT_TARGET
-    ) as HTMLElement;
-
-    new SkipContent({
-      skipContentEl: this._skipContentEl,
-      mainContentEl,
-    });
+    new SkipContent();
   }
 }
 
